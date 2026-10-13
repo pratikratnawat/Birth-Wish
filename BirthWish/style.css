@@ -1,0 +1,202 @@
+ body {
+            height: 100%;
+            margin: 0;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: black;
+        } 
+        .card {
+            position: relative;
+            width: 300px;
+            height: 425px;
+            border: 10px solid #f06ea4;
+            margin: 60px auto 0 auto;
+            box-shadow: inset 10px 0 15px 0 rgba(0, 0, 0, 0.1);
+            background-image: url("jiju1.jpg"); 
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: cyan;
+        }
+
+        .card .text-container {
+            width: 80%;
+            height: 80%;
+            margin: auto;
+        }
+
+        .strikethrough {
+            text-decoration: line-through;
+        }
+
+        .card .text-container #head {
+            font-size: 2.5em;
+            margin: 40px auto 60px auto;
+            font-style: italic;
+            text-shadow: 2px 2px 2px white;
+            animation: blinking 1s linear infinite;
+        }
+
+        .card p {
+            font-size: 1.1em;
+            line-height: 1.4;
+            font-family: 'Nobile', sans-serif;
+            color: #331717;
+            font-style: italic;
+            text-align: center;
+            margin: 30px auto 0;
+            animation: blinking 3s linear infinite;
+        }
+
+        .card .front {
+            position: absolute;
+            width: 100%;
+            height: 103%;
+            margin: -10px 0 0 -10px;
+            border: 10px solid orchid;
+            backface-visibility: hidden;
+            background-color: #9612eb;
+            background-size: contain;
+            transform-style: preserve-3d;
+            transform-origin: 0% 50%;
+            transform: perspective(800px) rotateY(0deg);
+            transition: all 0.8s ease-in-out;
+        }
+
+        .card:hover .front {
+            transform: perspective(800px) rotateY(-170deg);
+            background-color: #41718d;
+        }
+
+        .card:hover .back {
+            transform: perspective(800px) rotateY(-170deg);
+            box-shadow: 7px 0 5px 0 rgba(0, 0, 0, 0.3),
+                        inset 2px 0 15px 0 rgba(0, 0, 0, 0.1);
+            background-color: violet;
+            background-image: url("https://i.pinimg.com/564x/e4/c1/b3/e4c1b3ee1e8bbc1f5ab393ce217b4681.jpg");
+            background-size: cover;
+        }
+
+        .card .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 10px solid #f46cac;
+            margin: -10px 0 0 -10px;
+            backface-visibility: visible;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+            transform-style: preserve-3d;
+            transform-origin: 0% 50%;
+            transform: perspective(800px) rotateY(0deg);
+            transition: all 0.8s ease-in-out;
+            background-color: #e6f0e6;
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .imgset {
+            position: relative;
+            z-index: 1;
+        }
+
+        .imgset img {
+            box-shadow: 0 6px 11px 7px rgba(0, 0, 0, 0.22);
+            border-radius: 5px;
+            width: 100%;
+            height: 440px;
+            object-fit: cover;
+        }
+
+        .card .text-container h5 {
+            font-style: italic;
+            font-size: 30px;
+            text-shadow: 2px 2px 2px white;
+            margin-top: 350px;
+            margin-left: -10px;
+            animation: blinking 5s linear infinite;
+        }
+
+        @keyframes blinking {
+            0% {
+                color: rgb(169, 27, 145);
+            }
+
+            5% {
+                color: rgb(255, 80, 220);
+            }
+
+            10% {
+                color: blueviolet;
+            }
+
+            15% {
+                color: rgb(255, 192, 235);
+            }
+
+            25% {
+                color: rgb(87, 9, 165);
+            }
+
+            30% {
+                color: rgb(173, 14, 30);
+            }
+        }
+/* Responsive design - Mobile and Tablet */
+
+/* Tablets */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 0 10px;
+    }
+
+    .card {
+        max-width: 100%;
+    }
+
+    .imgset img {
+        max-width: 100%;
+    }
+}
+
+/* Mobile phones */
+@media screen and (max-width: 480px) {
+    .card {
+        width: 300px;
+        max-width: 100%;
+        height: 425px;
+        margin: 40px auto 0;
+    }
+
+    .card .front {
+        max-width: 100%;
+    }
+
+    .card .back {
+        max-width: 100%;
+    }
+
+    .imgset {
+        max-width: 100%;
+    }
+
+    .imgset img {
+        width: 100%;
+        height: 440px;
+        object-fit: cover;
+    }
+
+    .card .text-container h5 {
+        font-size: clamp(20px, 6vw, 30px);
+    }
+}
+
+/* Very small mobile screens */
+@media screen and (max-width: 320px) {
+    .card {
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .card .text-container h5 {
+        font-size: 20px;
+    }
+}
